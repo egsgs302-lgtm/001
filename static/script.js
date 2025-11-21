@@ -55,7 +55,6 @@ function formatTime(ms) {
 
 
 // Existing timer code above...
-
 function toggleTheme() {
     const body = document.body;
     const toggleBtn = document.getElementById("themeToggle");
@@ -63,11 +62,11 @@ function toggleTheme() {
     if (body.classList.contains("dark")) {
         body.classList.remove("dark");
         body.classList.add("light");
-        toggleBtn.textContent = "☀️"; // switch icon
+        toggleBtn.textContent = "☀️";
     } else {
         body.classList.remove("light");
         body.classList.add("dark");
-        toggleBtn.textContent = "🌙"; // switch icon
+        toggleBtn.textContent = "🌙";
     }
 }
 
