@@ -1,76 +1,64 @@
 /* Reset */
-body, h1, p {
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: monospace;
+  background: #111;
+  color: #0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
 }
 
-/* Layout */
-body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+.container {
+  width: 95%;
+  max-width: 600px;
+  padding: 20px;
   text-align: center;
 }
 
-.container {
-  max-width: 600px;
-  width: 90%;
-  padding: 20px;
-  background: rgba(0,0,0,0.4);
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-}
-
-/* Timer */
 #timer {
-  font-size: 4rem;
-  margin: 20px 0;
+  font-size: 12vw; /* scales with screen width */
+  margin-bottom: 20px;
 }
 
-/* Buttons */
 .buttons {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 15px;
 }
 
 button {
-  font-size: 1.2rem;
+  font-size: 8vw; /* scales with screen width */
+  max-width: 80px;
+  max-height: 80px;
   padding: 15px;
   border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  background: #ff9800;
+  border-radius: 50%;
+  background: #333;
   color: #fff;
+  cursor: pointer;
   transition: background 0.3s;
+  flex: 1 1 auto;
 }
 
 button:hover {
-  background: #e68900;
+  background: #555;
 }
 
-/* Footer */
 footer {
   margin-top: 30px;
-  font-size: 0.9rem;
+  font-size: 3vw;
+  color: #888;
 }
 
 .wallet {
-  font-weight: bold;
+  font-size: 2.5vw;
   word-break: break-all;
-}
-
-/* Responsive */
-@media (min-width: 600px) {
-  .buttons {
-    flex-direction: row;
-    justify-content: center;
-  }
-  button {
-    flex: 1;
-  }
 }
