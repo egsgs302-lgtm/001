@@ -1,29 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Timer</title>
-  <link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
-  <div class="container">
-    <div id="timer">00:00.000</div>
+<div class="container">
+  <div id="timer">00:00.000</div>
 
-    <div class="buttons">
-      <button onclick="startCountdown(180, 60)">🏋️</button>
-      <button onclick="startCountdown(1800, 300)">📚</button>
-      <button onclick="startStopwatch()">⏱</button>
-      <button onclick="stopTimer()">⏹</button>
-      <!-- Theme toggle -->
-      <button id="themeToggle" onclick="toggleTheme()">🌙</button>
-    </div>
-<footer>
-  <img src="/static/usdc.svg" alt="USDC" class="usdc-icon">
-  <p class="wallet">0x37636e8cb438a33a0280e1fdb00162e80b15721e</p>
-</footer>
-
+  <div class="buttons">
+    <button onclick="startCountdown(180, 60)">🏋️</button>
+    <button onclick="startCountdown(1800, 300)">📚</button>
+    <button onclick="startStopwatch()">⏱</button>
+    <button onclick="stopTimer()">⏹</button>
+    <button id="themeToggle" onclick="toggleTheme()">🌙</button>
   </div>
-  <script src="/static/script.js"></script>
-</body>
-</html>
+
+  <footer>
+    <img src="/static/usdc.svg" alt="USDC" class="usdc-icon">
+    <p class="wallet">0x37636e8cb438a33a0280e1fdb00162e80b15721e</p>
+  </footer>
+</div>
