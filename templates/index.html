@@ -1,15 +1,27 @@
-<!-- templates/index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Countdown Timer</title>
-    <script src="/static/script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown Timer</title>
+  <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <h1>Countdown Timer</h1>
+  <div class="container">
+    <h1>⏱ Countdown Timer</h1>
     <div id="timer">00:00</div>
-    <button onclick="startTimer(180, 60)">Workout Mode</button>
-    <button onclick="startTimer(1800, 300)">Study Mode</button>
-    <button onclick="stopTimer()">Stop</button>
+
+    <div class="buttons">
+      <button onclick="startTimer(180, 60)">🏋️ Workout Mode</button>
+      <button onclick="startTimer(1800, 300)">📚 Study Mode</button>
+      <button onclick="stopTimer()">⏹ Stop</button>
+    </div>
+
+    <footer>
+      <p>Support the project 💙</p>
+      <p>USDC Address: <span class="wallet">0x37636e8cb438a33a0280e1fdb00162e80b15721e</span></p>
+    </footer>
+  </div>
+  <script src="/static/script.js"></script>
 </body>
 </html>
