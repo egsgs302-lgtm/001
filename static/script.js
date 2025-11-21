@@ -52,3 +52,26 @@ function formatTime(ms) {
     let milliseconds = ms % 1000;
     return `${minutes.toString().padStart(2,"0")}:${seconds.toString().padStart(2,"0")}.${milliseconds.toString().padStart(3,"0")}`;
 }
+
+
+// Existing timer code above...
+
+function toggleTheme() {
+    const body = document.body;
+    const toggleBtn = document.getElementById("themeToggle");
+
+    if (body.classList.contains("dark")) {
+        body.classList.remove("dark");
+        body.classList.add("light");
+        toggleBtn.textContent = "☀️"; // switch icon
+    } else {
+        body.classList.remove("light");
+        body.classList.add("dark");
+        toggleBtn.textContent = "🌙"; // switch icon
+    }
+}
+
+// Default theme
+document.body.classList.add("dark");
+document.getElementById("themeToggle").textContent = "🌙";
+
