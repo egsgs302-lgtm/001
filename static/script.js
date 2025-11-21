@@ -1,36 +1,54 @@
-// static/script.js
 let timerInterval;
 let isWorkPhase = true;
 let workDuration, restDuration, timeLeft;
+let mode = "countdown"; // "countdown" or "stopwatch"
 
-function startTimer(work, rest) {
+function startCountdown(work, rest) {
     clearInterval(timerInterval);
-    workDuration = work;
-    restDuration = rest;
+    mode = "countdown";
+    workDuration = work * 1000;
+    restDuration = rest * 1000;
     isWorkPhase = true;
     timeLeft = workDuration;
-    runTimer();
+    runCountdown();
 }
 
-function runTimer() {
+function runCountdown() {
+    const startTime = Date.now();
     timerInterval = setInterval(() => {
-        document.getElementById("timer").innerText = formatTime(timeLeft);
-        timeLeft--;
+        const elapsed = Date.now() - startTime;
+        timeLeft = (isWorkPhase ? workDuration : restDuration) - elapsed;
 
-        if (timeLeft < 0) {
+        if (timeLeft <= 0) {
             isWorkPhase = !isWorkPhase;
-            timeLeft = isWorkPhase ? workDuration : restDuration;
+            clearInterval(timerInterval);
+            runCountdown(); // restart with new phase
+            return;
         }
-    }, 1000);
+
+        document.getElementById("timer").innerText = formatTime(timeLeft);
+    }, 10);
+}
+
+function startStopwatch() {
+    clearInterval(timerInterval);
+    mode = "stopwatch";
+    const startTime = Date.now();
+    timerInterval = setInterval(() => {
+        const elapsed = Date.now() - startTime;
+        document.getElementById("timer").innerText = formatTime(elapsed);
+    }, 10);
 }
 
 function stopTimer() {
     clearInterval(timerInterval);
-    document.getElementById("timer").innerText = "00:00";
+    document.getElementById("timer").innerText = "00:00.000";
 }
 
-function formatTime(seconds) {
-    let m = Math.floor(seconds / 60);
-    let s = seconds % 60;
-    return `${m.toString().padStart(2,"0")}:${s.toString().padStart(2,"0")}`;
+function formatTime(ms) {
+    let totalSeconds = Math.floor(ms / 1000);
+    let minutes = Math.floor(totalSeconds / 60);
+    let seconds = totalSeconds % 60;
+    let milliseconds = ms % 1000;
+    return `${minutes.toString().padStart(2,"0")}:${seconds.toString().padStart(2,"0")}.${milliseconds.toString().padStart(3,"0")}`;
 }
